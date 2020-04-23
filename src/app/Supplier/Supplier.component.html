@@ -1,0 +1,12 @@
+<div
+    style="min-height: 100%;min-width: 700px;display: flex;flex-direction: column;justify-content: space-between;-webkit-user-select: none;-moz-user-select: none;-o-user-select: none;user-select: none;">
+    <app-menu></app-menu>
+    <div style="min-height: 70vh;display: flex;flex-direction: column;justify-content: flex-start;">
+        <router-outlet></router-outlet>
+    </div>
+    <div style="background-color: #efefef;width: 100%;min-width: 700px;">
+        <app-end></app-end>
+    </div>
+</div>
+<!-- 回到顶部 -->
+<nz-back-top [nzVisibilityHeight]='0'></nz-back-top>

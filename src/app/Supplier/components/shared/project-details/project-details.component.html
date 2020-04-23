@@ -1,0 +1,358 @@
+<nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
+    <div class="formm">
+        <strong class="title">竞价项目详情</strong>
+        <div style="width: 90%;box-shadow: 5px 5px 5px #cccccc;background-color: #fff;">
+            <nz-descriptions nzTitle="" nzBordered [nzSize]="'middle'"
+                [nzColumn]="{ xxl: 3, xl: 3, lg: 3, md: 1, sm: 1, xs: 1 }">
+                <nz-descriptions-item nzTitle="采购组织">
+                    <div nz-tooltip nzTooltipTitle="{{data.orgSName}}" nzTooltipPlacement="top">
+                        {{data.orgName}}</div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="材料分类">
+                    <div nz-tooltip nzTooltipTitle="{{data.category}}" nzTooltipPlacement="top">
+                        {{data.category}}</div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="项目名称">
+                    <div nz-tooltip nzTooltipTitle="{{data.projectName}}" nzTooltipPlacement="top">
+                        {{data.projectName}}</div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="开始时间">
+                    <div nz-tooltip nzTooltipTitle="{{data.startTime}}" nzTooltipPlacement="top">
+                        {{data.startTime}}</div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="截止时间">
+                    <!-- [nzTooltipTitle]="false?'1':'2'"  -->
+                    <div nz-tooltip nzTooltipTitle="{{data.endTime}}" nzTooltipPlacement="top"
+                        *ngIf='getTimeStamp(data.endTime)>NOW'>
+                        {{data.endTime}}&nbsp;<span style="color: red;">(未含延时)</span></div>
+                    <div nz-tooltip nzTooltipTitle="{{data.finalTime}}" nzTooltipPlacement="top"
+                        *ngIf='getTimeStamp(data.endTime)<=NOW'>
+                        {{data.finalTime}}&nbsp;<span style="color: red;">(已含延时)</span></div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="交货时间">
+                    <div nz-tooltip nzTooltipTitle="{{data.seedGoodsTime}}" nzTooltipPlacement="top">
+                        {{data.seedGoodsTime}}</div>
+                </nz-descriptions-item>
+
+            </nz-descriptions>
+        </div>
+
+        <div id="Form2" style="background-color: #fff;">
+            <nz-table nzSize="middle" [nzData]="data.contentDtos" [nzFrontPagination]='false'
+                [nzScroll]="{ x: '1200px' }">
+
+                <thead>
+                    <tr>
+                        <th nzWidth="100px" nzLeft="0px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>材料名称</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>规格/型号</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>计量单位</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>采购数量</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>减价阶梯</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>含税总报价</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>含税料品报价</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>料品税率</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>税前料品报价</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>是否两票制</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>含税运费</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>运费税率</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>税前运费</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>结算方式</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>付款方式</span>
+                            </div>
+                        </th>
+                        <th nzWidth="150px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 150px;">
+                                <span>品牌或产地</span>
+                            </div>
+                        </th>
+                        <th nzWidth="150px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 150px;">
+                                <span>备注</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>第一名分配量</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>第二名分配量</span>
+                            </div>
+                        </th>
+                        <th nzWidth="100px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;">
+                                <span>第三名分配量</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of data.contentDtos;let i = index">
+                        <td nzLeft="0px">
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip nzTooltipTitle="{{item.productName}}">
+                                {{item.productName}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip nzTooltipTitle="{{item.specifications}}">
+                                {{item.specifications}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip nzTooltipTitle="{{item.metering}}">
+                                {{item.metering}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip
+                                nzTooltipTitle="{{item.purchaseNum.toFixed(2).toString()}}&nbsp;{{item.metering}}">
+                                {{item.purchaseNum.toFixed(2).toString()}}&nbsp;{{item.metering}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip nzTooltipTitle="{{item.dropPrice.toFixed(2).toString()}}&nbsp;元">
+                                {{item.dropPrice.toFixed(2).toString()}}&nbsp;元</div>
+                        </td>
+
+                        <td>
+                            <nz-input-number style="width: 100px;" [(ngModel)]="postPriceList[i].quotedPrice"
+                                [nzMin]="0" [nzStep]="1" [nzFormatter]="formatterRMB" [nzParser]="parserRMB"
+                                (ngModelChange)="bindPrice(i)" nzDisabled=true>
+                            </nz-input-number>
+                        </td>
+                        <td>
+                            <nz-input-number style="width: 100px;" [(ngModel)]="postPriceList[i].offerPrice" [nzMin]="0"
+                                [nzStep]="1" [nzFormatter]="formatterRMB" [nzParser]="parserRMB"
+                                (ngModelChange)="bindPrice(i)">
+                            </nz-input-number>
+                        </td>
+                        <td>
+                            <nz-input-number style="width: 100px;" [(ngModel)]="postPriceList[i].quotedPriceTax"
+                                *ngIf='item.reserve2===null' [nzMin]="0" [nzMax]="100" [nzStep]="0.01"
+                                [nzFormatter]="formatterPercent" [nzParser]="parserPercent"
+                                (ngModelChange)=formatterPercentage(i) (ngModelChange)="bindPrice(i)">
+                            </nz-input-number>
+                            <div style="width: 100px;display: flex;justify-content: center;align-items: center;"
+                                *ngIf='item.reserve2!==null' nz-tooltip nzTooltipTitle="{{item.reserve2}}">
+                                {{(item.reserve2*100).toFixed(2).toString()}}&nbsp;%</div>
+                        </td>
+                        <td>
+                            <nz-input-number style="width: 100px;" [(ngModel)]="postPriceList[i].price" [nzMin]="0"
+                                [nzStep]="1" [nzFormatter]="formatterRMB" [nzParser]="parserRMB"
+                                (ngModelChange)="bindPrice(i)" nzDisabled=true>
+                            </nz-input-number>
+                        </td>
+                        <td>
+                            <div style="width: 100px;display: flex;justify-content: center;align-items: center;">
+                                <nz-switch [(ngModel)]="postPriceList[i].isOneVote" nzCheckedChildren="两票制"
+                                    nzUnCheckedChildren="一票制" (ngModelChange)=IsOneVote(i)></nz-switch>
+                            </div>
+                        </td>
+                        <td>
+                            <nz-input-number style="width: 100px;" [(ngModel)]="postPriceList[i].freightQuotedPrice"
+                                [nzMin]="0" [nzStep]="1" [nzFormatter]="formatterRMB" [nzParser]="parserRMB"
+                                (ngModelChange)="bindPrice(i)" [nzDisabled]='!postPriceList[i].isOneVote'>
+                            </nz-input-number>
+                        </td>
+                        <td>
+                            <nz-input-number style="width: 100px;" [(ngModel)]="postPriceList[i].freightQuotedTax"
+                                *ngIf='item.reserve4===null' [nzMin]="0" [nzMax]="100" [nzStep]="0.01"
+                                [nzFormatter]="formatterPercent" [nzParser]="parserPercent"
+                                (ngModelChange)=formatterPercentage2(i) (ngModelChange)="bindPrice(i)">
+                            </nz-input-number>
+                            <div style="width: 100px;display: flex;justify-content: center;align-items: center;"
+                                *ngIf='item.reserve4!==null' nz-tooltip nzTooltipTitle="{{item.reserve4}}">
+                                {{(item.reserve4*100).toFixed(2).toString()}}&nbsp;%</div>
+                        </td>
+                        <td>
+                            <nz-input-number style="width: 100px;" [(ngModel)]="postPriceList[i].freightPrice"
+                                [nzMin]="0" [nzStep]="1" [nzFormatter]="formatterRMB" [nzParser]="parserRMB"
+                                (ngModelChange)="bindPrice(i)" nzDisabled=true>
+                            </nz-input-number>
+                        </td>
+
+                        <td>
+                            <nz-select style="width: 100px;" [(ngModel)]="postPriceList[i].settlement" nzAllowClear=true
+                                *ngIf='item.reserve3===null'>
+                                <ng-container *ngFor="let item of settlementList;let j = index">
+                                    <nz-option nzValue="{{item.value}}" nzLabel="{{item.value}}">
+                                    </nz-option>
+                                </ng-container>
+                            </nz-select>
+                            <div style="width: 100px;display: flex;justify-content: center;align-items: center;"
+                                *ngIf='item.reserve3!==null' nz-tooltip nzTooltipTitle="{{item.reserve3}}">
+                                {{item.reserve3}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip nzTooltipTitle="{{item.reserve5}}">
+                                {{item.reserve5}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 150px;"
+                                nz-tooltip nzTooltipTitle="{{item.reserve1}}">
+                                {{item.reserve1}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 150px;"
+                                nz-tooltip nzTooltipTitle="{{item.remark}}">
+                                {{item.remark}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip
+                                nzTooltipTitle="{{item.distribute1.toFixed(2).toString()}}&nbsp;{{item.metering}}">
+                                {{item.distribute1.toFixed(2).toString()}}&nbsp;{{item.metering}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip
+                                nzTooltipTitle="{{item.distribute2.toFixed(2).toString()}}&nbsp;{{item.metering}}">
+                                {{item.distribute2.toFixed(2).toString()}}&nbsp;{{item.metering}}</div>
+                        </td>
+                        <td>
+                            <div style="display: flex;justify-content: center;align-items: center;width: 100px;"
+                                nz-tooltip
+                                nzTooltipTitle="{{item.distribute3.toFixed(2).toString()}}&nbsp;{{item.metering}}">
+                                {{item.distribute3.toFixed(2).toString()}}&nbsp;{{item.metering}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </nz-table>
+
+        </div>
+
+        <!-- 倒计时 -->
+        <app-countdown *ngIf='getTimeStamp(data.endTime)>NOW' #countdownChild [date]=data.endTime [finishWorld]="'已截止'">
+        </app-countdown>
+        <app-countdown *ngIf='getTimeStamp(data.endTime)<=NOW' #countdownChild [date]=data.finalTime
+            [finishWorld]="'已截止'"></app-countdown>
+
+        <div style="display: flex;">
+            <button style="margin: 10px 10px" nzType='' nz-button [nzSize]="'small'" (click)='Ranking()'>查看当前排名</button>
+
+            <button style="margin: 10px 10px" nzType='' nz-button [nzSize]="'small'" (click)='showPdf()'>竞价参与须知</button>
+
+            <button *ngIf="data.isSuccess!==1" nz-button style="margin: 10px 15px" [nzSize]="'small'" nzType='primary'
+                (click)="toResult()">查看竞价结果</button>
+
+            <button *ngIf="data.isSuccess===1" nzType='primary' nz-button style="margin: 10px 15px" nz-popconfirm
+                nzPopconfirmTitle="请确认报价信息！" [nzSize]="'small'" [nzIcon]="iconTpl" (nzOnConfirm)="postPrice()"
+                (nzOnCancel)="cancel()" [disabled]="disabled">提交报价</button>
+
+            <ng-template #iconTpl>
+                <i nz-icon nzType="question-circle-o" style="color: red;"></i>
+            </ng-template>
+        </div>
+
+    </div>
+
+</nz-spin>
+
+<!-- 排名详情弹窗 -->
+<nz-modal *ngIf='historyPriceList.length!==0' [(nzVisible)]="isVisible" nzTitle="" (nzOnCancel)="cancel()"
+    (nzOnOk)="cancel()" [nzCancelText]='null' [nzOkText]='null' nzWidth='40rem'>
+    <nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
+        <app-modal-content [data]='showList' [num]='historyPriceList[0].offerTime' [title]='tipsTitle'>
+        </app-modal-content>
+    </nz-spin>
+</nz-modal>
+
+<!-- “竞价参与须知”弹窗、自动 -->
+<nz-modal [(nzVisible)]="isVisiblePdf" nzTitle="" (nzOnCancel)="cancel2()" (nzOnOk)="cancel2()" [nzCancelText]='null'
+    [nzOkText]='null' nzWidth='60rem'>
+    <h3><strong style="font-size: x-large;">竞价参与须知</strong></h3>
+    <div class="pdfBox">
+        <pdf-viewer [src]="pdfSrc" [page]="page" [zoom]="1" [original-size]="true" style="display: block;">
+        </pdf-viewer>
+        <div style="width: 100%;display: flex;justify-content: center;margin-bottom: 10px;">
+            <label nz-checkbox [(ngModel)]="ifAgree"><strong>我已阅读并同意上述条款</strong></label>
+        </div>
+        <div style="display: flex;justify-content: center;margin-bottom: 10px;">
+            <button nz-button [nzSize]="'small'" style="margin-right: 10px;" (click)="cancel2()">取消</button>
+            <button nz-button [nzSize]="'small'" nzType='primary' style="margin-left: 10px;" (click)="agree()"
+                [disabled]='!ifAgree'>确定</button>
+        </div>
+    </div>
+</nz-modal>
+
+<!-- “竞价参与须知”弹窗、手动 -->
+<nz-modal [(nzVisible)]="isVisiblePdf2" nzTitle="" (nzOnCancel)="cancel3()" (nzOnOk)="cancel3()" [nzCancelText]='null'
+    [nzOkText]='null' nzWidth='60rem'>
+    <h3><strong style="font-size: x-large;">竞价参与须知</strong></h3>
+    <div class="pdfBox">
+        <pdf-viewer [src]="pdfSrc" [page]="page" [zoom]="1" [original-size]="true" style="display: block;">
+        </pdf-viewer>
+        <div style="display: flex;justify-content: center;margin-bottom: 10px;">
+            <!-- <a [href]="pdfSrc" download="BiddingNotice" class="a_button">&nbsp;下载到本地&nbsp;</a> -->
+            <a [href]="pdfSrc" download class="a_button" style="margin-right: 10px;">
+                <div style="margin: 2px 8px;">
+                    下载
+                </div>
+            </a>
+            <button style="margin-left: 10px;" nz-button [nzSize]="'small'" nzType='primary' nzGhost
+                (click)='download()'>查看</button>
+        </div>
+    </div>
+</nz-modal>

@@ -1,0 +1,45 @@
+<h3><strong>账号信息</strong></h3>
+
+<nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
+    <div class="scroll">
+        <nz-descriptions nzTitle="" nzBordered [nzSize]="'small'"
+            [nzColumn]="{ xxl: 2, xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }">
+            <nz-descriptions-item nzTitle="编码">
+                <div>{{supInfo.code}}</div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="公司名称">
+                <div>{{supInfo.supplierName}}</div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="公司地址">
+                <div>{{supInfo.address_Sup}}</div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="手机号码">
+                <div>{{supInfo.phone}}</div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="组织机构代码证号">
+                <div>{{supInfo.orgLicenseNo}}</div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="营业执照">
+                <div>{{supInfo.businessLicense}}</div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="邮箱">
+                <div>{{supInfo.email}}</div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="我的供应对象">
+                <div>
+                    <button nz-button [nzSize]="'small'" nzType='primary' (click)="toMyServices()" nzGhost>点击查看</button>
+                </div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="我的竞价">
+                <div>
+                    <button nz-button [nzSize]="'small'" nzType='primary' (click)="toMyPro()" nzGhost>点击查看</button>
+                </div>
+            </nz-descriptions-item>
+            <nz-descriptions-item nzTitle="密码">
+                <div>
+                    <button nz-button [nzSize]="'small'" nzType='primary' (click)="toPSW()" nzGhost>点击修改</button>
+                </div>
+            </nz-descriptions-item>
+        </nz-descriptions>
+    </div>
+</nz-spin>

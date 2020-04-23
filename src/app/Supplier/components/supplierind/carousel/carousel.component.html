@@ -1,0 +1,21 @@
+<!-- <p>carousel works!</p> -->
+
+<!-- <div id="car">
+    <nz-carousel nzAutoPlay nzDots=false>
+        <div nz-carousel-content *ngFor="let index of array" style="display: flex;flex-direction: column;justify-content: center;">
+            <strong style="padding: 5px 0px;font-size: large;">{{ index }}</strong>
+        </div>
+    </nz-carousel>
+</div> -->
+
+<div id="c_img">
+    <div id="car">
+        <nz-carousel nzAutoPlay nzDots>
+            <div nz-carousel-content *ngFor="let index of imgUrl">
+                <div id="DIV">
+                    <img src="{{index}}" alt="error">
+                </div>
+            </div>
+        </nz-carousel>
+    </div>
+</div>

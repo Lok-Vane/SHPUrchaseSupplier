@@ -1,0 +1,103 @@
+.Table {
+  border: 1px solid #efefef;
+  border-radius: 5px;
+  background-color: #efefef;
+  margin-bottom: 25px;
+  box-shadow: 5px 5px 5px #cccccc;
+  // width: 100%;
+}
+
+.list-item {
+  display: flex;
+  background-color: #fff;
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+  margin: 2px 0px;
+  transition: all 0.15s;
+  -moz-transition: all 0.15s;
+  /* Firefox 4 */
+  -webkit-transition: all 0.15s;
+  /* Safari and Chrome */
+  -o-transition: all 0.15s;
+  /* Opera */
+  transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  /* Firefox 4 */
+  -webkit-transition-timing-function: linear;
+  /* Safari 和 Chrome */
+  -o-transition-timing-function: linear;
+  /* Opera */
+  border: 0.5px solid #efefef;
+  border-radius: 5px;
+  a {
+    color: #555;
+  }
+  a:hover {
+    // color: #1890ff;
+    // text-decoration: underline;
+    // color: rgb(255, 157, 108);
+  }
+}
+
+.list-item:hover {
+  // background-color: #efefef;
+  transform: translate(-6px, -3px);
+  opacity: 0.5;
+  box-shadow: 3px 3px 3px #888888;
+}
+
+#head {
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+  margin-bottom: 2px;
+  text-align: center;
+  background-color: #efefef;
+  font-size: large;
+  font-weight: 100;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.more {
+  color: #555;
+  // width: 100%;
+}
+
+.more:hover {
+  opacity: 0.5;
+}
+
+#date {
+  flex-grow: 1; //这三个元素只有它在有空余空间时可伸缩，也就是它占据了所有剩余空间
+  display: flex; //将它设置为flex,就可以单独对他进行主轴右对齐
+  justify-content: flex-end;
+  // background-color: aqua
+}
+
+#tag {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nz-spin {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+strong {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  font-weight: 900;
+}
+
+// .tag {
+//   font-family: YouYuan;
+// }

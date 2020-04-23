@@ -1,0 +1,6 @@
+<span style="display: flex;align-items: center">
+    <!-- (click)="test.checkLogin()" -->
+    <input id="search" [(ngModel)]='shared.keyWordSearch' nz-input placeholder="请输入搜索关键词"
+        oninput="value=value.replace(/\s+/g,'')" (keyup)="enter($event)"/>
+    <button nz-button (click)='doSearch()' nzType="link"><i nz-icon [nzType]="'search'"></i></button>
+</span>

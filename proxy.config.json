@@ -1,0 +1,12 @@
+{
+    "/api/shepp/v1": {
+        "target": "http://172.16.100.29:8087",
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/api/sys/v1": {
+        "target": "http://172.16.100.29:8001",
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

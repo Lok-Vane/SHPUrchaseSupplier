@@ -1,0 +1,65 @@
+.gridBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.btnBox {
+    width: 85%;
+    display: flex;
+    justify-content: flex-start;
+    button {
+        margin: 0px 5px 2px 0px;
+    }
+}
+
+nz-step {
+    font-weight: 900;
+}
+
+h3 {
+    text-align: center;
+}
+
+.scroll {
+    overflow-y: scroll;
+    height: 200px;
+    width: auto;
+    border-top: 0.5px solid #efefef;
+    border-bottom: 0.5px solid #efefef;
+}
+
+nz-modal {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.Tips .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    background-color: #aaa;
+    color: #fff;
+    text-align: center;
+    padding: 2px;
+    // font-weight: 600;
+    border-radius: 6px;
+    /* 定位 */
+    position: absolute;
+    top: 40px;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+.Tips:hover .tooltiptext {
+    visibility: visible;
+}
+
+.Tips {
+    position: relative;
+    margin: 20px 0px;
+}

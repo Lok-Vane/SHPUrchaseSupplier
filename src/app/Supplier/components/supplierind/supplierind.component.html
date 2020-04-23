@@ -1,0 +1,60 @@
+<div id="indexBox">
+    <div id="content">
+        <app-content></app-content>
+    </div>
+    <div id="quote">
+        <app-carousel></app-carousel>
+        <nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
+            <li class="List" style="opacity: 0.9;">
+                <div style="background-color: #efefef;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                    <p style="text-align:center;margin-top: 10px;font-weight: 900;">
+                        一级材料分类
+                    </p>
+                </div>
+                <ng-container *ngFor="let item of categoryFirstList;let i = index">
+                    <button
+                        class="button button--nanuk button--text-thick button--text-upper button--size-s button--border-thick"
+                        style="margin: 2px;border-right:2px solid #efefef;border-bottom
+                        :2px solid #efefef;" id="categoryFirst{{i}}" value="{{item.categoryFirName}}"
+                        (click)="doSearch(item.categoryFirName)" nz-tooltip
+                        nzTooltipTitle="搜索&nbsp;&nbsp;“{{item.categoryFirName}}”" nzTooltipPlacement="top">
+                        <ng-container *ngFor="let temp of doStringArray(item.categoryFirName);let j = index"
+                            style="display: flex;flex-direction: row;">
+                            <span>{{temp}}</span>
+                        </ng-container>
+                    </button>
+                </ng-container>
+                <span style="margin-top: 5px;margin-bottom: 5px;display: flex;justify-content: center;">
+                    <nz-pagination [nzPageSize]="5" (nzPageIndexChange)='IndexChange2()' [nzSize]="'small'"
+                        [(nzPageIndex)]="ind2" [nzTotal]="totalCount"></nz-pagination>
+                </span>
+            </li>
+        </nz-spin>
+        <nz-spin [nzSpinning]="isSpinning2" [nzDelay]="0">
+            <li class="List" style="opacity: 0.9;">
+                <div style="background-color: #efefef;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                    <p style="text-align:center;margin-top: 10px;font-weight: 900;">
+                        组织分类
+                    </p>
+                </div>
+                <ng-container *ngFor="let item of orgList;let i = index">
+                    <button
+                        class="button button--nanuk button--text-thick button--text-upper button--size-s button--border-thick"
+                        style="margin: 2px;border-right:2px solid #efefef;border-bottom
+                        :2px solid #efefef;" id="org{{i}}" value="{{item.shortName}}"
+                        (click)="doSearch(item.shortName)" nz-tooltip
+                        nzTooltipTitle="搜索&nbsp;&nbsp;“{{item.shortName}}”" nzTooltipPlacement="top">
+                        <ng-container *ngFor="let temp of doStringArray(item.shortName);let j = index"
+                            style="display: flex;flex-direction: row;">
+                            <span>{{temp}}</span>
+                        </ng-container>
+                    </button>
+                </ng-container>
+                <span style="margin-top: 5px;margin-bottom: 5px;display: flex;justify-content: center;">
+                    <nz-pagination [nzPageSize]="5" (nzPageIndexChange)='IndexChange()' [nzSize]="'small'"
+                        [(nzPageIndex)]="ind" [nzTotal]="totalCount2"></nz-pagination>
+                </span>
+            </li>
+        </nz-spin>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="app-header">
+    <div class="sidebar-logo">
+        <a href="http://www.sanhepile.com/" target="_blank">
+            <img src="../../../../assets/imgs/SHlogo.gif" alt="SHlogo">
+            <!-- <h1 style="font-family: YouYuan;font-weight: 900;">三和管桩&nbsp;&nbsp;·&nbsp;&nbsp;采购管理平台</h1> -->
+            <h1 style="font-family: Microsoft YaHei;font-weight: 300;">三和管桩&nbsp;•&nbsp;电子采购平台</h1>
+            <!-- <h1 style="font-family: Microsoft YaHei;font-weight: 300;">·</h1>
+            <h1 style="font-family: Microsoft YaHei;font-weight: 300;">采购管理平台</h1> -->
+        </a>
+    </div>
+    <span style="padding-left: 4rem">
+        <app-search></app-search>
+    </span>
+    <span style="position: fixed;right: 1rem;z-index: 99;">
+        <app-user></app-user>
+    </span>
+</div>
+
+<ul id="menu" nz-menu nzMode="horizontal">
+
+    <li nz-menu-item routerLink='/index' nzMatchRouter=true>
+        首页
+    </li>
+
+    <li nz-menu-item routerLink='/tendering' nzMatchRouter=true>
+        竞价公告
+    </li>
+
+    <li nz-submenu nzTitle="个人中心" *ngIf='shared.ifLogin'>
+        <ul>
+            <li nz-menu-item nzMatchRouter=true (click)='supInfo()'>账号信息</li>
+            <li nz-menu-item nzMatchRouter=true (click)='toMyPro()'>我的竞价</li>
+            <li nz-menu-item nzMatchRouter=true (click)='toMyServices()'>我的供应对象</li>
+            <li nz-menu-item (click)='modifyPSW()' nzMatchRouter=true>修改密码</li>
+            <li nz-menu-item nzMatchRouter=true (click)='logout()'>退出</li>
+        </ul>
+    </li>
+
+    <li nz-submenu nzTitle="竞价参与须知" *ngIf='shared.ifLogin'>
+        <ul>
+            <li nz-menu-item nzMatchRouter=true (click)='showPdf()'>查看</li>
+            <li nz-menu-item nzMatchRouter=true>
+                <a [href]="pdfSrc" download>
+                    下载
+                </a>
+            </li>
+        </ul>
+    </li>
+
+</ul>
+
+
+<nz-modal [(nzVisible)]="visible" nzTitle="" (nzOnCancel)="close()" (nzOnOk)="close()" [nzOkText]='null'
+    [nzCancelText]='null' nzWidth='15rem'>
+
+    <h3><strong>登出账号</strong></h3>
+
+    <div style="margin-top: 30px;margin-bottom: -10px;">
+        <div style="display: flex;justify-content: center;">
+            <button nz-button [nzSize]="'small'" (click)="close()" style="margin-right: 10px;">取消</button>
+            <button nz-button [nzSize]="'small'" (click)="doLogout()" nzType='primary'
+                style="margin-left: 10px;">确定</button>
+        </div>
+    </div>
+
+</nz-modal>
+
+<nz-modal [(nzVisible)]="shared.visible2" nzTitle="" (nzOnCancel)="close()" (nzOnOk)="close()" [nzOkText]='null'
+    [nzCancelText]='null' nzWidth='30rem'>
+    <app-modify-psw *ngIf='shared.visible2'></app-modify-psw>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="shared.visible3" nzTitle="" (nzOnCancel)="close()" (nzOnOk)="close()" [nzOkText]='null'
+    [nzCancelText]='null' nzWidth='30rem'>
+    <app-sup-info *ngIf='shared.visible3'></app-sup-info>
+</nz-modal>

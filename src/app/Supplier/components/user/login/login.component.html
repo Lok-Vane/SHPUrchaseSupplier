@@ -1,0 +1,37 @@
+<!-- <br><br><input nz-input class="sign" [(ngModel)]="Test.straff.straffPhone" (keyup)="Test.num($event)" maxlength="11"
+    onkeyup="this.value=this.value.replace(/\D/g,'')" placeholder="手机号码登录" type="text" style="width:13rem;"
+    id="num_login" />
+<br><br>
+
+<br><br><input nz-input class="sign" [(ngModel)]="Test.straff.passWord" (keyup)="Test.psw($event)" maxlength="20"
+    [disabled]="Test.pswDisabled" placeholder="请输入密码" type="password" style="width:13rem;" id="psw_login" />
+<br><br>
+
+<br><br><button nz-button nzType="primary" style="width: 13rem;opacity: 0.8"
+    (click)="Test.doLogin()">登录</button><br><br> -->
+
+<nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
+    <h3><strong>请输入账号密码</strong></h3>
+
+    <div style="margin: 10px;">
+        <div class="Tips"
+            style="display: flex;width: 100%;justify-content: center;justify-items: center;align-content: center;">
+            <div style="display: flex;width: 85%;justify-content: center;align-items: center;">
+                <input nz-input style="width: 100%;" [(ngModel)]="loginPost.phone" placeholder="手机号码" id="phone"
+                    (keyup)="Enter($event)" onkeyup="this.value=this.value.replace(/\D/g,'')">
+            </div>
+            <span class="tooltiptext">手机号码</span>
+        </div>
+        <div class="Tips"
+            style="display: flex;width: 100%;justify-content: center;justify-items: center;align-content: center;">
+            <div style="display: flex;width: 85%;justify-content: center;align-items: center;">
+                <input nz-input style="width: 100%;" [(ngModel)]="loginPost.password_sup" placeholder="密码"
+                    type="password" id="psw" (keyup)="Enter($event)">
+            </div>
+            <span class="tooltiptext">密码</span>
+        </div>
+        <div style="display: flex;justify-content: center;">
+            <button nz-button [nzSize]="'small'" (click)="doLogin()" nzType='primary'>登录</button>
+        </div>
+    </div>
+</nz-spin>

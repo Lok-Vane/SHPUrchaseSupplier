@@ -1,0 +1,61 @@
+<nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
+    <div class="formm">
+
+        <strong class="title">项目竞价结果</strong>
+
+        <div style="width: 90%;box-shadow: 5px 5px 5px #cccccc;background-color: #fff;">
+            <nz-descriptions nzTitle="" nzBordered [nzColumn]="{ xxl: 3, xl: 3, lg: 3, md: 1, sm: 1, xs: 1 }"
+                [nzSize]="'middle'">
+                <nz-descriptions-item nzTitle="采购组织">
+                    <div nz-tooltip nzTooltipTitle="{{Form1.orgSName}}" nzTooltipPlacement="top">
+                        {{Form1.orgName}}
+                    </div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="材料分类">
+                    <div nz-tooltip nzTooltipTitle="{{Form1.category}}" nzTooltipPlacement="top">
+                        {{Form1.category}}
+                    </div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="项目名称">
+                    <div nz-tooltip nzTooltipTitle="{{Form1.projectName}}" nzTooltipPlacement="top">
+                        {{Form1.projectName}}
+                    </div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="开始时间">
+                    <div nz-tooltip nzTooltipTitle="{{Form1.startTime}}" nzTooltipPlacement="top">
+                        {{Form1.startTime}}
+                    </div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="截止时间">
+                    <div nz-tooltip nzTooltipTitle="{{Form1.finalTime}}" nzTooltipPlacement="top">
+                        {{Form1.finalTime}}
+                    </div>
+                </nz-descriptions-item>
+                <nz-descriptions-item nzTitle="交货时间">
+                    <div nz-tooltip nzTooltipTitle="{{Form1.seedGoodsTime}}" nzTooltipPlacement="top">
+                        {{Form1.seedGoodsTime}}
+                    </div>
+                </nz-descriptions-item>
+            </nz-descriptions>
+        </div>
+
+        <span style="margin-bottom: 20px;width: 90%;">
+            <ng-container *ngFor="let item of productInfoList;let i = index">
+                <div class="FormBox">
+                    <div class="Form1">
+                        <ag-grid-angular [enableCellTextSelection]="true" style="width: 100%; height: 80px;"
+                            class="ag-theme-balham" [rowData]="productInfoList[i]" [columnDefs]="productColumnDefs">
+                        </ag-grid-angular>
+                    </div>
+                    <div class="Form2">
+                        <ag-grid-angular [enableCellTextSelection]="true" style="width: 100%; height: 140px;"
+                            class="ag-theme-balham" [rowData]="resultPrice[i]" [columnDefs]="priceColumnDefs">
+                        </ag-grid-angular>
+                    </div>
+                </div>
+
+            </ng-container>
+        </span>
+
+    </div>
+</nz-spin>

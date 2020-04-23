@@ -1,0 +1,83 @@
+#Form2 {
+  // background-color: #efefef;
+  width: 90%;
+  // height: 500px;
+  // background-color: red;
+  border: 0.5px solid #ddd;
+  box-shadow: 5px 5px 5px #cccccc;
+  // border-radius: 10px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  position: relative;
+  // box-shadow: #ddd 5px 5px 4px;
+  // display: flex;
+  // justify-content: center;
+  // align-content: center;
+  // width: 80%
+}
+
+.formm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  // border: 2px solid #ddd;
+  // border-radius: 10px;
+  // background-color: aqua
+}
+
+// a:hover {
+//   color: #1890ff;
+// }
+
+// a {
+//   color: #333;
+// }
+
+.a_button {
+  background-color: #1890ff;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.a_button:hover {
+  opacity: 0.8;
+}
+
+.title {
+  margin: 15px;
+  font-size: large;
+}
+
+nz-spin {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+// nz-modal {
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -o-user-select: none;
+//   user-select: none;
+// }
+
+.pdfBox {
+  overflow-y: scroll;
+  height: 500px;
+  width: auto;
+  border-top: 0.5px solid #f8f8f8;
+  border-bottom: 0.5px solid #f8f8f8;
+  background-color: #f8f8f8;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+}
+
+h3 {
+  text-align: center;
+}

@@ -1,0 +1,61 @@
+<!-- 二次确认弹窗 -->
+<ng-template #iconTpl>
+    <i nz-icon nzType="question-circle-o" style="color: red;"></i>
+</ng-template>
+
+<nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
+    <div class="gridBox">
+        <div class="btnBox">
+            <button nz-button [nzSize]="'small'" nzType="primary" nzGhost (click)='showAdd()'>新增</button>
+            <button nz-button [nzSize]="'small'" nzGhost nzType='danger' nz-popconfirm nzPopconfirmTitle="确认删除已选中数据吗？"
+                [nzIcon]="iconTpl" (nzOnConfirm)="doDelete()" (nzOnCancel)="cancel()">删除</button>
+        </div>
+        <ag-grid-angular [enableCellTextSelection]="true" #ServicesAgrid style="width: 85%; height: 500px;"
+            class="ag-theme-balham" [rowData]="serviceList" [columnDefs]="columnDefsSup" rowSelection="multiple">
+        </ag-grid-angular>
+        <div style="display: flex;justify-content: center;margin: 10px 0px;">
+            <nz-pagination nzShowQuickJumper [(nzPageIndex)]="ind" [nzPageSize]="10" [nzTotal]="totalCount"
+                [nzSize]="'small'" (nzPageIndexChange)='IndexChange()'>
+            </nz-pagination>
+        </div>
+    </div>
+</nz-spin>
+
+<nz-modal [(nzVisible)]="visible" nzTitle="" (nzOnCancel)="close()" (nzOnOk)="close()" [nzOkText]='null'
+    [nzCancelText]='null' nzWidth='30rem'>
+    <nz-spin [nzSpinning]="isSpinning" [nzDelay]="0" *ngIf='visible'>
+        <h3><strong>新增供应对象</strong></h3>
+
+        <div class="scroll">
+            <div class="Tips"
+                style="display: flex;width: 100%;justify-content: center;justify-items: center;align-content: center;">
+                <div style="display: flex;width: 85%;justify-content: center;align-items: center;">
+                    <nz-select style="width: 100%;" [(ngModel)]="selectCategory" nzAllowClear=true
+                        nzPlaceHolder='供应料品类'>
+                        <ng-container *ngFor="let item of categoryFirstList;let j = index">
+                            <nz-option [nzValue]='item' nzLabel="{{item.categoryFirName}}">
+                            </nz-option>
+                        </ng-container>
+                    </nz-select>
+                </div>
+                <span class="tooltiptext">供应料品类</span>
+            </div>
+            <div class="Tips"
+                style="display: flex;width: 100%;justify-content: center;justify-items: center;align-content: center;">
+                <div style="display: flex;width: 85%;justify-content: center;align-items: center;">
+                    <nz-select style="width: 100%;" [(ngModel)]="selectOrg" nzAllowClear=true nzPlaceHolder='供应组织'
+                        nzMode="tags">
+                        <ng-container *ngFor="let item of orgList;let j = index">
+                            <nz-option [nzValue]='item' nzLabel="【{{item.shortName}}】{{item.name}}">
+                            </nz-option>
+                        </ng-container>
+                    </nz-select>
+                </div>
+                <span class="tooltiptext">供应组织</span>
+            </div>
+            <div style="display: flex;justify-content: center;margin-bottom: 20px;">
+                <button nz-button [nzSize]="'small'" (click)="doAdd()" nzType='primary'>确定</button>
+            </div>
+        </div>
+    </nz-spin>
+</nz-modal>

@@ -1,0 +1,13 @@
+<a *ngIf="!shared.ifLogin" (click)="open()"><span style="font-size: medium">登录</span></a>
+
+<a *ngIf="shared.ifLogin"><span style="font-size: medium" (click)='supInfo()'>{{shared.supplierData.supplierName}}</span></a>
+
+<nz-modal [(nzVisible)]="shared.visible" nzTitle="" (nzOnCancel)="close()" (nzOnOk)="close()" [nzOkText]='null'
+    [nzCancelText]='null' nzWidth='30rem'>
+    <app-login *ngIf='shared.visible'></app-login>
+</nz-modal>
+
+<nz-modal [(nzVisible)]="shared.visible3" nzTitle="" (nzOnCancel)="close()" (nzOnOk)="close()" [nzOkText]='null'
+    [nzCancelText]='null' nzWidth='30rem'>
+    <app-sup-info *ngIf='shared.visible3'></app-sup-info>
+</nz-modal>

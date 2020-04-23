@@ -1,0 +1,59 @@
+<nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
+    <div class="Table">
+        <div id="head">
+            <strong>{{header}}</strong>
+        </div>
+        <span *ngIf="Notices.length !== 0">
+            <ng-container *ngFor="let item of Notices;let i = index" style="margin: 2px;">
+                <div class="list-item" nz-tooltip nzTooltipTitle="{{titleTips(item)}}" nzTooltipPlacement="top"
+                    (click)="clickFind(item.projectID)">
+                    <span id="tag">
+                        <nz-tag [nzColor]="'red'" style="box-shadow: 0px 0px 3px red;">
+                            <div style="margin: 1px;font-weight: 500;" class="tag">
+                                {{ item.orgSName }}
+                            </div>
+                        </nz-tag>
+                    </span>
+                    <a style="font-family: Microsoft YaHei;">{{item.noticeName}}</a>
+                    <span id="date">
+                        <span id="tag">
+                            <nz-tag
+                                [nzColor]="getTimeStamp(item.finalTime)>=NOW && getTimeStamp(item.startTime)<=NOW?'gold':''"
+                                [ngStyle]="{'box-shadow': getTimeStamp(item.finalTime)>=NOW && getTimeStamp(item.startTime)<=NOW?'0px 0px 3px gold':'0px 0px 3px #555'}">
+                                <div *ngIf="getTimeStamp(item.startTime)>=NOW" style="margin: 1px;font-weight: 500;"
+                                    class="tag">
+                                    未开始
+                                </div>
+                                <div *ngIf="getTimeStamp(item.finalTime)>=NOW && getTimeStamp(item.startTime)<=NOW"
+                                    class="tag" style="margin: 1px;font-weight: 500;">
+                                    竞价中
+                                </div>
+                                <div *ngIf="getTimeStamp(item.finalTime)<NOW" style="margin: 1px;font-weight: 500;"
+                                    class="tag">
+                                    已截止
+                                </div>
+                            </nz-tag>
+                        </span>
+                        <div *ngIf="getTimeStamp(item.endTime)>NOW" style="color: #888;">{{ item.endTime }}</div>
+                        <div *ngIf="getTimeStamp(item.endTime)<=NOW" style="color: #888;">{{ item.finalTime }}</div>
+                    </span>
+                </div>
+            </ng-container>
+
+            <div style="margin: 3px;">
+                <span>&nbsp;</span>
+            </div>
+        </span>
+
+        <!-- 空数据 -->
+        <div *ngIf="Notices.length === 0" style="background-color: #fff;;width: 100%;margin-bottom: 20px;">
+            <nz-empty></nz-empty>
+        </div>
+    </div>
+
+    <!-- 分页 -->
+    <div style="display: flex;justify-content: center;margin: 10px 0px;">
+        <nz-pagination nzShowQuickJumper [nzPageSize]="15" [nzSize]="'small'" (nzPageIndexChange)='IndexChange()'
+            [(nzPageIndex)]="ind" [nzTotal]="totalCount"></nz-pagination>
+    </div>
+</nz-spin>

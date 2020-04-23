@@ -1,0 +1,80 @@
+#Tab {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: #ddd 5px 5px 4px;
+}
+
+[nz-form] {
+    // max-width: 600px;
+    width: 30rem;
+    margin-right: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.FormBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 40px 0px;
+    // transform: translate(-6px, -3px);
+    box-shadow: 5px 5px 5px #cccccc;
+}
+
+#Form1 {
+    width: 100%;
+    // border: 0.5px solid #ddd;
+    position: relative;
+    // margin-top: 20px;
+    opacity: 1;
+}
+
+.Form2 {
+    width: 100%;
+    // border: 0.5px solid #ddd;
+    position: relative;
+    // margin-top: 20px;
+    opacity: 1;
+    // top: -5px;
+}
+
+.formm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    // border: 2px solid #ddd;
+    // border-radius: 10px;
+    // background-color: aqua
+}
+
+a:hover {
+    color: #1890ff;
+}
+
+a {
+    color: #333;
+}
+
+nz-list-item:hover {
+    background-color: #efefef;
+}
+
+nz-list-item {
+    display: flex;
+}
+
+.title {
+    margin: 15px;
+    font-size: large;
+}
+
+nz-spin {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
