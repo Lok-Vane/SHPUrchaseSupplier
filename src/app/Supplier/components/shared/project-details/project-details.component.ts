@@ -164,9 +164,9 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
             biddingId: that.data.contentDtos[i].bizId,
             settlement: that.data.contentDtos[i].reserve3 == null ? null : that.data.contentDtos[i].reserve3,     // 结算方式
             quotedPrice: 0,   // 最终总报价
-            price: 0,     // 料品报价裸价
-            quotedPriceTax: that.data.contentDtos[i].reserve2 == null ? 0 : that.data.contentDtos[i].reserve2,    // 料品税率
-            offerPrice: 0,       // 料品税后报价
+            price: 0,     // 材料报价裸价
+            quotedPriceTax: that.data.contentDtos[i].reserve2 == null ? 0 : that.data.contentDtos[i].reserve2,    // 材料税率
+            offerPrice: 0,       // 材料税后报价
             isOneVote: false,       // 是否两票制
             freightPrice: 0,         // 运费单价
             freightQuotedTax: that.data.contentDtos[i].reserve4 == null ? 0 : that.data.contentDtos[i].reserve4,    // 运费税率
@@ -286,11 +286,11 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
                 ranking: that.rankingList[j].ranking,
 
                 price:
-                  (that.getItem(that.historyPriceList, that.rankingList[j].biddingId).price * 1).toFixed(2) + '元',   // 税前料品价
+                  (that.getItem(that.historyPriceList, that.rankingList[j].biddingId).price * 1).toFixed(2) + '元',   // 税前材料价
                 quotedPriceTax:
-                  (that.getItem(that.historyPriceList, that.rankingList[j].biddingId).quotedPriceTax * 100).toFixed(2) + '%',   // 料品税率
+                  (that.getItem(that.historyPriceList, that.rankingList[j].biddingId).quotedPriceTax * 100).toFixed(2) + '%',   // 材料税率
                 offerPrice:
-                  (that.getItem(that.historyPriceList, that.rankingList[j].biddingId).offerPrice * 1).toFixed(2) + '元',   // 税后料品价
+                  (that.getItem(that.historyPriceList, that.rankingList[j].biddingId).offerPrice * 1).toFixed(2) + '元',   // 税后材料价
 
                 freightPrice:
                   (that.getItem(that.historyPriceList, that.rankingList[j].biddingId).freightPrice * 1).toFixed(2) + '元',   // 税前运费
@@ -402,7 +402,7 @@ export class ProjectDetailsComponent implements OnInit, OnDestroy {
         quotedPrice: this.postPriceList[i].quotedPrice,   // 总价
 
         quotedPriceTax: this.postPriceList[i].quotedPriceTax,
-        offerPrice: this.postPriceList[i].offerPrice,    // 料品税后价
+        offerPrice: this.postPriceList[i].offerPrice,    // 材料税后价
         price: this.postPriceList[i].price,     // 报价裸价
 
         freightQuotedPrice: this.postPriceList[i].freightQuotedPrice,         // 运费税后

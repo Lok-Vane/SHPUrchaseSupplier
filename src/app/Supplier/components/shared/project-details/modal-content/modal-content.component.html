@@ -5,6 +5,10 @@
 
     <ng-container *ngFor="let item of data;let i = index">
 
+        <div style="width: 95%;display: flex;justify-content: flex-end;margin-top: 10px;">
+            <strong style="color: red;">当前排名：{{item.ranking}}，您已出价{{num}}次。</strong>
+        </div>
+
         <nz-descriptions nzTitle="" nzBordered [nzSize]="'small'" style="margin: 10px;"
             [nzColumn]="{ xxl: 3, xl: 2, lg: 2, md: 1, sm: 1, xs: 1 }">
 
@@ -12,19 +16,19 @@
                 <div>{{item.productName}}（{{item.specifications}}）</div>
             </nz-descriptions-item>
 
-            <nz-descriptions-item nzTitle="当前排名">
+            <!-- <nz-descriptions-item nzTitle="当前排名">
                 <strong style="color: red;">{{item.ranking}}</strong>
-            </nz-descriptions-item>
+            </nz-descriptions-item> -->
 
-            <nz-descriptions-item nzTitle="税前料品报价">
+            <nz-descriptions-item nzTitle="税前材料报价">
                 <div>{{item.price}}</div>
             </nz-descriptions-item>
 
-            <nz-descriptions-item nzTitle="料品税率">
+            <nz-descriptions-item nzTitle="材料税率">
                 <div>{{item.quotedPriceTax}}</div>
             </nz-descriptions-item>
 
-            <nz-descriptions-item nzTitle="税后料品报价">
+            <nz-descriptions-item nzTitle="税后材料报价">
                 <div>{{item.offerPrice}}</div>
             </nz-descriptions-item>
 
@@ -51,8 +55,8 @@
         </nz-descriptions>
 
     </ng-container>
-    <div style="width: 90%;display: flex;justify-content: flex-end;margin-bottom: 20px;">
+    <!-- <div style="width: 90%;display: flex;justify-content: flex-end;margin-bottom: 20px;">
         <strong style="color: red;">您已出价{{num}}次</strong>
-    </div>
+    </div> -->
 
 </div>

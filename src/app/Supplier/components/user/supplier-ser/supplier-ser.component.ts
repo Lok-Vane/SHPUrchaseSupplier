@@ -21,7 +21,7 @@ export class SupplierSerComponent implements OnInit {
   columnDefsSup: ColDef[] = [
     { headerCheckboxSelection: true, checkboxSelection: true, width: 40 },
     { headerName: '供应商名称', field: 'supplierName', sortable: true, filter: true, resizable: true, width: 200 },
-    { headerName: '供应料品类别', field: 'oneCategoryName', sortable: true, filter: true, resizable: true, width: 200 },
+    { headerName: '供应材料类别', field: 'oneCategoryName', sortable: true, filter: true, resizable: true, width: 200 },
     { headerName: '供应组织名称', field: 'orgName', sortable: true, filter: true, resizable: true, width: 200 },
     { headerName: '供应组织简称', field: 'orgSName', sortable: true, filter: true, resizable: true, width: 200 },
     { headerName: '备注', field: 'remark', sortable: true, filter: true, resizable: true, width: 200 },

@@ -31,14 +31,14 @@
                 style="display: flex;width: 100%;justify-content: center;justify-items: center;align-content: center;">
                 <div style="display: flex;width: 85%;justify-content: center;align-items: center;">
                     <nz-select style="width: 100%;" [(ngModel)]="selectCategory" nzAllowClear=true
-                        nzPlaceHolder='供应料品类'>
+                        nzPlaceHolder='供应材料类'>
                         <ng-container *ngFor="let item of categoryFirstList;let j = index">
                             <nz-option [nzValue]='item' nzLabel="{{item.categoryFirName}}">
                             </nz-option>
                         </ng-container>
                     </nz-select>
                 </div>
-                <span class="tooltiptext">供应料品类</span>
+                <span class="tooltiptext">供应材料类</span>
             </div>
             <div class="Tips"
                 style="display: flex;width: 100%;justify-content: center;justify-items: center;align-content: center;">
