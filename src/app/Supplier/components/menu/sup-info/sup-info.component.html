@@ -3,7 +3,7 @@
 <nz-spin [nzSpinning]="isSpinning" [nzDelay]="0">
     <div class="scroll">
         <nz-descriptions nzTitle="" nzBordered [nzSize]="'small'"
-            [nzColumn]="{ xxl: 2, xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }">
+            [nzColumn]="{ xxl: 1, xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }">
             <nz-descriptions-item nzTitle="编码">
                 <div>{{supInfo.code}}</div>
             </nz-descriptions-item>
@@ -25,7 +25,7 @@
             <nz-descriptions-item nzTitle="邮箱">
                 <div>{{supInfo.email}}</div>
             </nz-descriptions-item>
-            <nz-descriptions-item nzTitle="我的供应对象">
+            <nz-descriptions-item nzTitle="我的供应关系">
                 <div>
                     <button nz-button [nzSize]="'small'" nzType='primary' (click)="toMyServices()" nzGhost>点击查看</button>
                 </div>

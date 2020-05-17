@@ -1,6 +1,6 @@
 {
     "/api/shepp/v1": {
-        "target": "http://172.16.100.29:8087",
+        "target": "http://172.16.100.29:8088",
         "logLevel": "debug",
         "changeOrigin": true
     },

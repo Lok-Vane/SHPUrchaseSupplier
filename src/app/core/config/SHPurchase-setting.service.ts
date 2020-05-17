@@ -56,10 +56,10 @@ export class SHPurchaseSettinggService {
     public readonly PurchaseBidRanking = `${this.baseUrl}/biddingoffer/ranking`;  // 供应商获取最新排名
     public readonly PurchaseBidSupHistory = `${this.baseUrl}/biddingoffer/suppliersearch`;  // 供应商查询历史报价
 
-    public readonly PurchaseSerCreate = `${this.baseUrl}/supplierservices/create`;  // 供应商创建供应对象
-    public readonly PurchaseSerBatchDelete = `${this.baseUrl}/supplierservices/batchdelete`;  // 供应商批量删除供应对象
-    public readonly PurchaseSerDelete = `${this.baseUrl}/supplierservices/delete`;  // 供应商删除供应对象
-    public readonly PurchaseSerSearchSup = `${this.baseUrl}/supplierservices/suppliersearch`;  // 供应商查询供应对象
-    public readonly PurchaseSupServicesSearch = `${this.baseUrl}/supplierservices/search`;  // 内部查询供应商供应对象
+    public readonly PurchaseSerCreate = `${this.baseUrl}/supplierservices/create`;  // 供应商创建供应关系
+    public readonly PurchaseSerBatchDelete = `${this.baseUrl}/supplierservices/batchdelete`;  // 供应商批量删除供应关系
+    public readonly PurchaseSerDelete = `${this.baseUrl}/supplierservices/delete`;  // 供应商删除供应关系
+    public readonly PurchaseSerSearchSup = `${this.baseUrl}/supplierservices/suppliersearch`;  // 供应商查询供应关系
+    public readonly PurchaseSupServicesSearch = `${this.baseUrl}/supplierservices/search`;  // 内部查询供应商供应关系
 
 }
