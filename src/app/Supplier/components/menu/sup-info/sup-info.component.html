@@ -5,25 +5,73 @@
         <nz-descriptions nzTitle="" nzBordered [nzSize]="'small'"
             [nzColumn]="{ xxl: 1, xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }">
             <nz-descriptions-item nzTitle="编码">
-                <div>{{supInfo.code}}</div>
+                <span class="contentBox" ngxClipboard [cbContent]="supInfo.code"
+                    (cbOnSuccess)="successFun($event,'编码')">
+                    <div>{{supInfo.code}}</div>
+                    <button nz-button [nzSize]="'small'" nzType="link">
+                        <i nz-icon nzType="copy" nzTheme="outline"></i>
+                    </button>
+                </span>
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="公司名称">
-                <div>{{supInfo.supplierName}}</div>
+                <!-- <div>{{supInfo.supplierName}}</div> -->
+                <span class="contentBox" ngxClipboard [cbContent]="supInfo.supplierName"
+                    (cbOnSuccess)="successFun($event,'公司名称')">
+                    <div>{{supInfo.supplierName}}</div>
+                    <button nz-button [nzSize]="'small'" nzType="link">
+                        <i nz-icon nzType="copy" nzTheme="outline"></i>
+                    </button>
+                </span>
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="公司地址">
-                <div>{{supInfo.address_Sup}}</div>
+                <!-- <div>{{supInfo.address_Sup}}</div> -->
+                <span class="contentBox" ngxClipboard [cbContent]="supInfo.address_Sup"
+                    (cbOnSuccess)="successFun($event,'公司地址')">
+                    <div>{{supInfo.address_Sup}}</div>
+                    <button nz-button [nzSize]="'small'" nzType="link">
+                        <i nz-icon nzType="copy" nzTheme="outline"></i>
+                    </button>
+                </span>
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="手机号码">
-                <div>{{supInfo.phone}}</div>
+                <!-- <div>{{supInfo.phone}}</div> -->
+                <span class="contentBox" ngxClipboard [cbContent]="supInfo.phone"
+                    (cbOnSuccess)="successFun($event,'手机号码')">
+                    <div>{{supInfo.phone}}</div>
+                    <button nz-button [nzSize]="'small'" nzType="link">
+                        <i nz-icon nzType="copy" nzTheme="outline"></i>
+                    </button>
+                </span>
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="组织机构代码证号">
-                <div>{{supInfo.orgLicenseNo}}</div>
+                <!-- <div>{{supInfo.orgLicenseNo}}</div> -->
+                <span class="contentBox" ngxClipboard [cbContent]="supInfo.orgLicenseNo"
+                    (cbOnSuccess)="successFun($event,'组织机构代码证号')">
+                    <div>{{supInfo.orgLicenseNo}}</div>
+                    <button nz-button [nzSize]="'small'" nzType="link">
+                        <i nz-icon nzType="copy" nzTheme="outline"></i>
+                    </button>
+                </span>
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="营业执照">
-                <div>{{supInfo.businessLicense}}</div>
+                <!-- <div>{{supInfo.businessLicense}}</div> -->
+                <span class="contentBox" ngxClipboard [cbContent]="supInfo.businessLicense"
+                    (cbOnSuccess)="successFun($event,'营业执照')">
+                    <div>{{supInfo.businessLicense}}</div>
+                    <button nz-button [nzSize]="'small'" nzType="link">
+                        <i nz-icon nzType="copy" nzTheme="outline"></i>
+                    </button>
+                </span>
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="邮箱">
-                <div>{{supInfo.email}}</div>
+                <!-- <div>{{supInfo.email}}</div> -->
+                <span class="contentBox" ngxClipboard [cbContent]="supInfo.email"
+                    (cbOnSuccess)="successFun($event,'邮箱')">
+                    <div>{{supInfo.email}}</div>
+                    <button nz-button [nzSize]="'small'" nzType="link">
+                        <i nz-icon nzType="copy" nzTheme="outline"></i>
+                    </button>
+                </span>
             </nz-descriptions-item>
             <nz-descriptions-item nzTitle="我的供应关系">
                 <div>

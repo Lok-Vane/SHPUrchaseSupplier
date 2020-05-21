@@ -52,12 +52,12 @@ export class ParamInterceptor implements HttpInterceptor {
         // console.log(req);
         let token: string;
         const logininfo: any = JSON.parse(sessionStorage.getItem('supLogin'));
-        if (req.urlWithParams === `/api/sys/v1/organize/search`) {
-            token = '77f1753bbbbd4366ada57d6988444db3';
-        } else {
-            token = logininfo === null ? null : logininfo.token;
-            // console.log(token);
-        }
+        // if (req.urlWithParams === `/api/sys/v1/organize/search`) {
+        //     token = '77f1753bbbbd4366ada57d6988444db3';
+        // } else {
+        //     token = logininfo === null ? null : logininfo.token;
+        // }
+        token = logininfo === null ? null : logininfo.token;
         if (logininfo !== null) {
             // 克隆请求头并附加Token
             // token = JSON.parse(token);

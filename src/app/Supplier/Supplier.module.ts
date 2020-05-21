@@ -32,6 +32,7 @@ import {
   ModalContentComponent,
 } from '.';
 import { SupplierRoutingModule } from './Supplier-routing.module';
+import { ClipboardModule } from 'ngx-clipboard';
 import { PdfModalComponent } from './components/shared/project-details/pdf-modal/pdf-modal.component';
 
 @NgModule({
@@ -70,6 +71,7 @@ import { PdfModalComponent } from './components/shared/project-details/pdf-modal
     NgZorroAntdModule,
     SupplierRoutingModule,
     PdfViewerModule,
+    ClipboardModule,
     AgGridModule.withComponents([])
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],

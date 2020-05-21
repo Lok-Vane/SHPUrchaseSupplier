@@ -58,9 +58,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.dao.doPostRequest(this.SHPurchase.PurchaseSupLogin, this.loginPost).subscribe((res: any) => {
       this.shared.supplierData = res.data;
       sessionStorage.setItem('supLogin', JSON.stringify(res.data));
-      // console.log(JSON.parse(sessionStorage.getItem('supLogin')));
       this.shared.ifLogin = true;
-      // console.log(this.shared.supplierData);
       this.shared.visible = false;
       this.isSpinning = false;
     }, (err: any) => {

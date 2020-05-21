@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DaoService, SHPurchaseSettinggService, SharedService } from 'src/app/core';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-sup-info',
@@ -13,6 +14,7 @@ export class SupInfoComponent implements OnInit {
   supInfo: any = {};
 
   constructor(
+    private message: NzMessageService,
     public router: Router,
     public dao: DaoService,
     public SHPurchase: SHPurchaseSettinggService,
@@ -54,6 +56,10 @@ export class SupInfoComponent implements OnInit {
     setTimeout(() => {
       that.router.navigate(['user/myPro', JSON.parse(sessionStorage.getItem('supLogin')).supplierCode]);
     }, 500);
+  }
+
+  successFun(e, t) {
+    this.message.create('success', t + ' 复制成功');
   }
 
 }
